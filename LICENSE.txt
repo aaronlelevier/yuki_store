@@ -1,0 +1,2 @@
+python code is open and may be reused.
+HTML, CSS, Javascript, jQuery, and images may NOT be reused or copied under any conditions.

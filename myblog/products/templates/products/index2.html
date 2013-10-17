@@ -1,0 +1,128 @@
+{% extends "products/base.html" %}
+
+
+{% block content %}
+
+
+<div id="maincontainer"> 
+    <!-- Slider Start-->
+    <section class="slider">
+        <div class="container">
+            <div class="html_carousel">
+                <div id="mainslider2">
+                    {% for object in main_slider %}
+                    <div class="slide"> <img src="{{ STATIC_URL }}{{ object.picture2 }}" alt="" />
+                        <div>
+                            <h4>{{ object.name }}</h4>
+                            <p>{{ object.description }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <!-- <div class="slide"> <img src="img/banner1.jpg" alt="" />
+                        <div>
+                            <h4>Slider3</h4>
+                            <p>Diffrent type of Home page layout  & Slider option</p>
+                        </div>
+                    </div> -->
+
+                </div>
+                <div class="clearfix"></div>
+                <div class="thumbnails" id="mainslider2_pag"></div>
+            </div>
+        </div>
+    </section>
+    <!-- Slider End-->
+    <div class="container mt40">
+        <div class="row ">
+            <div class="span3"> 
+                <!-- Category-->
+                <div class="sidewidt">
+                    <h2 class="heading2"><span><i class="icon-th-list"></i> Categories</span></h2>
+                    <ul class="nav nav-list categories">
+                        {% for object in categories %}
+                        <li> <a href="#">{{ object.name }}</a> </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="span3"> 
+                <!-- Latest Product -->
+                <div class="sidewidt">
+                    <h2 class="heading2"><span><i class="icon-trophy"></i> Latest Products</span></h2>
+                    <ul class="bestseller">
+                        {% for object in latest_products %}
+                        <li> <img width="50" height="50" src="{{ STATIC_URL }}{{ object.picture }}" alt="{{ object.name }}" title="product"> <a class="productname" href="#"> {{ object.name }}</a> <span class="price">${{ object.price }}</span>
+                            <div class="ratingstar"> <i class="icon-star"> </i><i class="icon-star"> </i><i class="icon-star"> </i> <i class="icon-star-empty"></i> <i class="icon-star-empty"></i></div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="span3"> 
+                <!--  Best Seller -->
+                <div class="sidewidt">
+                    <h2 class="heading2"><span><i class="icon-bookmark"></i> Best Seller</span></h2>
+                    <ul class="bestseller">
+                        {% for object in best_seller %}
+                        <li> <img width="50" height="50" src="{{ STATIC_URL }}{{ object.picture }}" alt="{{ object.name }}" title="product"> <a class="productname" href="product.html">{{ object.name }}</a> <span class="procategory">{{ object.category }}</span> <span class="price">${{ object.price }}</span> </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="span3"> 
+                <!--  Newsletter -->
+                <div class="sidewidt">
+                    <h2 class="heading2"><span><i class="icon-pencil"></i> Newsletters</span></h2>
+                    <section id="newslettersignup">
+                        <div class="pull-left mt20">
+                            <form action="" method="post">{% csrf_token %}
+                                <div class="input-prepend">
+                                    <input for="id_email" type="email" name="email" placeholder="Subscribe to Newsletter" id="inputIcon" class="span2">
+                                    <input value="Subscribe" class="btn btn-orange" type="submit">
+                                </div>
+                            </form>
+<!--                             <form class="form-horizontal">
+                                <div class="input-prepend">
+                                    <input type="text" placeholder="Subscribe to Newsletter" id="inputIcon" class="span2">
+                                    <input value="Subscribe" class="btn btn-orange" type="submit">
+                                    Sign in </div>
+                            </form> -->
+                        </div>
+                    </section>
+                </div>
+                
+                </div>
+                <!--  Must have -->
+                  <div class="span3"> 
+                <div class="sidewidt mt40">
+                    <h2 class="heading2"><span><i class="icon-picture"></i> Ad Banner</span></h2>
+                    <div class="flexslider" id="flexslider2">
+                        <ul class="slides">
+                            {% for object in ad_banner %}
+                            <li> <img src="{{ STATIC_URL }}{{ object.picture }}" alt="{{ object.name }}" /> </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Popular Brands-->
+        <section id="popularbrands" class="container">
+            <h1 class="heading1"><span class="maintext"> <i class="icon-trophy"></i> Popular Brands</span></h1>
+            <div class="brandcarousalrelative">
+                <ul id="brandcarousal">
+                    {% for object in popular_styles %}
+                    <li><img src="{{ STATIC_URL }}{{ object.picture }}" alt="{{ object.name }}" title=""/></li>
+                    {% endfor %}
+                </ul>
+                <div class="clearfix"></div>
+                <a id="prev" class="prev" href="#"><i class="icon-chevron-left"></i></a> <a id="next" class="next" href="#"><i class="icon-chevron-right"></i></a> </div>
+        </section>
+    </div>
+</div>
+<div class="clearfix"></div>
+<!-- /maincontainer --> 
+
+
+{% endblock %}

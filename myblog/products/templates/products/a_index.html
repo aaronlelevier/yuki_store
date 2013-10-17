@@ -1,0 +1,63 @@
+{% extends "products/a_base.html" %}
+
+<!-- {% load crispy_forms_tags %} -->
+
+
+{% block tab_title %}Index{% endblock %}
+
+{% block page_title %}{% endblock %}
+
+{% block content %}
+
+<h2><span>MAIN SLIDER</span></h2>
+<ul>
+	{% for each in main_slider %}
+		<li><a href="#">{{ each.name }}</a></li>
+	{% endfor %}
+</ul>
+
+<h2><span>CATEGORIES</span></h2>
+<ul>
+	{% for category in categories %}
+		<li><a href="#">{{ category.name }}</a></li>
+	{% endfor %}
+</ul>
+
+<h2><span>LATEST PRODUCTS</h2></span>
+<ul>
+	{% for each in latest_products %}
+		<li><a href="#">{{ each.name }}</a></li>
+	{% endfor %}
+</ul>
+
+<h2><span>BEST SELLER</h2></span>
+<ul>
+	{% for each in best_seller %}
+		<li><a href="#">{{ each.name }}</a></li>
+	{% endfor %}
+</ul>
+
+<h2><span>NEWSLETTERS</h2></span>
+<form action="" method="post">{% csrf_token %}
+		{{ form.as_p }}
+	<input type="submit" value="Subscribe">
+</form>
+
+<h2><span>AD BANNER</h2></span>
+<ul>
+	{% for each in ad_banner %}
+		<li><a href="#">{{ each.name }}</a></li>
+	{% endfor %}
+</ul>
+
+<h2><span>POPULAR STYLES</h2></span>
+<ul>
+	{% for each in popular_styles %}
+		<li><a href="#">{{ each.name }}</a></li>
+	{% endfor %}
+</ul>
+
+
+{% endblock %}
+
+{% block extrajs %}{% endblock %}
